@@ -1,1 +1,4 @@
 snowflake
+
+# python -m pip install --upgrade pip
+# snowflake-connector-python[pandas]
