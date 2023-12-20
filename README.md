@@ -1,3 +1,4 @@
+ [![Snowflake](https://img.shields.io/badge/Snowflake-Ready-brightgreen)](https://www.snowflake.com/)
  🥔shiny potato 
 # snowflake-demo 
 This project demonstrates basic data operations with Snowflake using Python.
