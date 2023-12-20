@@ -1,0 +1,12 @@
+{
+    "snowflake": {
+      "user": "msbeigi",
+      "password": "Ghi9rail755",
+      "account": "xcyevyt-po65493",
+      "warehouse": "COMPUTE_WH",
+      "database": "GIT",
+      "schema": "PUBLIC",
+      "role": "ACCOUNTADMIN"
+    }
+  }
+  
