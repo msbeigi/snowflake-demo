@@ -13,6 +13,12 @@ CONFIG={}
 
 
 def setup():
+    """
+    Reads Snowflake connection details from config.json file.
+
+    Returns:
+        dict: Configuration details for Snowflake connection.
+    """
     with open('./config.json') as f:
         config_data=json.load(f)
     snowflake_config=config_data.get('snowflake',{})
@@ -25,6 +31,12 @@ def setup():
     
 
 def connector():
+    """
+    Establishes a connection to Snowflake using the configuration details.
+
+    Returns:
+        snowflake.connector.connection.SnowflakeConnection: Snowflake connection object.
+    """
     setup()
     con = snowflake.connector.connect(
     user=CONFIG['user'],
@@ -40,6 +52,13 @@ def connector():
 
 
 def create_table_edos():
+    """
+        Creates a table 'Odes_Comments' in Snowflake if it does not exist.
+
+        Returns:
+            None
+        """
+    
     con=connector()
     cur=con.cursor()
 
@@ -69,12 +88,24 @@ def create_table_edos():
 
 
 def load_csv_file():
+    """
+    Loads a CSV file 'sample_comments.csv' from the data directory.
+
+    Returns:
+        pandas.DataFrame: DataFrame containing the loaded data.
+    """
     file_path = './data/sample_comments.csv'
     df = pd.read_csv(file_path)
 
     return df
 
 def insert_file_odes():
+    """
+    Inserts data from the CSV file into the 'Odes_Comments' table in Snowflake.
+
+    Returns:
+        None
+    """
     df_comments=load_csv_file()
     conn=connector()
     cur=conn.cursor()
