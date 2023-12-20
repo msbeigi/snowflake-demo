@@ -79,13 +79,14 @@ def insert_file_odes():
     conn=connector()
     cur=conn.cursor()
 
-    select_command='SELECT * FROM "Odes_Comments"'
+    select_command='SELECT * FROM GIT.PUBLIC."Odes_Comments"'
     cur.execute(select_command)
     data=cur.fetchall()
     
     if not data:
         # print(len(pd.DataFrame(data)))
         write_pandas(conn,df_comments,table_name='Odes_Comments')
-
+    else:
+        print('Data already in the table.')
     cur.close()
     conn.close()
